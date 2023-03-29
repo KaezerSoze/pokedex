@@ -1,39 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import PokemonCard from './components/PokemonCard'
-import "./App.css"
-
-
+import { useState } from 'react';
+import './App.css';
+import PokemonCard from './components/PokemonCard';
+import NavBar from './components/NavBar';
 
 function App() {
-      
-    
   const pokemonList = [
-    { 
+    {
       name: "bulbasaur",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
     },
     {
-      name:"salamender",
+      name: "salamender",
       imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
     },
     {
-      name:"squirtle",
-      imgSrc:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+      name: "squirtle",
+      imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
     },
     {
       name: "pikachu",
-      imgSrc:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+      imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+    },
+    {
+      name: "new"
     }
-
-  ]
+  ];
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-
-  
   const handleNextPokemon = () => {
     if (pokemonIndex < pokemonList.length - 1) {
       setPokemonIndex(pokemonIndex + 1);
@@ -46,19 +39,21 @@ function App() {
     }
   };
 
-  
   const pokemon = pokemonList[pokemonIndex];
 
   return (
     <div>
-     
-     
+      <h1>PoKeDex</h1>
+      <NavBar
+        handleNextPokemon={handleNextPokemon}
+        handlePreviousPokemon={handlePreviousPokemon}
+        pokemonIndex={pokemonIndex}
+        pokemonListLength={pokemonList.length}
+      />
       <PokemonCard pokemon={pokemon} />
-      {pokemonIndex > 0 && <button onClick={handlePreviousPokemon}>Précédent</button>}
-      {pokemonIndex < pokemonList.length - 1 && <button onClick={handleNextPokemon}>Suivant</button>}
-
     </div>
   );
 }
- 
+
 export default App;
+
