@@ -5,6 +5,7 @@ import './App.css'
 import PokemonCard from './components/PokemonCard'
 import "./App.css"
 
+
 function App() {
       
     
@@ -14,12 +15,18 @@ function App() {
       imgSrc:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
     },
-
     {
-      name: "mew",
+      name:"salamender",
+      imgSrc: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
     },
-  ];
-  const pokemon = pokemonList[0]
+    {
+      name:"squirtle",
+      imgSrc:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
+    }
+
+  ]
+  
+  const pokemon = pokemonList[1]
         return (
           <PokemonCard pokemon={pokemon}/>
       )
